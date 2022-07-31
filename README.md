@@ -13,12 +13,11 @@ This projrects explains how I used Flask microframework in Python to create a dy
 ### Steps:
 1-create a simple `HTML` page that contains a `form` tag, make sure that you used the `name` attribute of the input tags:
 
-```
-    <form action="{{url_for('getValue')}}" method="get">
+```    <form action="{{url_for('getValue')}}" method="get">
       <label>Sensor value is:</label>
-      <input type="number" name="num" placeholder="value">
+      <input type="number" placeholder="value" name="num">
       <input value="send" type="submit" name="sent">
-    </form> 
+    </form>
 ``` 
 the code between curly brackets is a `Jinja code`, or Python inside HTML code, that switch the implementation to Python file `getValue` method that will store the data inside the database.
 
@@ -49,7 +48,7 @@ def getValue():
     if request.args.get('sent') == 'send':
         val = request.args.get('num')
         ts = datetime.now().strftime("%d_%m_%Y, %H:%M:%S")
-        db = firebase.database().child(ts).set(val)
+        firebase.database().child(ts).set(val)
     return render_template("index.html")
 
 ```
@@ -62,7 +61,7 @@ def getValue():
 
 `ts = datetime.now().strftime("%d_%m_%Y, %H:%M:%S")` store the timestamp as String, and modify its format as `dd_mm_yyyy`, so it can be appended in the `url` without problem.
 
-`db = firebase.database().child(ts).set(val)` set the value of the variable `val` under the chiled `ts` which is under the root of this tree which represent the database as a whole.
+`firebase.database().child(ts).set(val)` set the value of the variable `val` under the chiled `ts` which is under the root of this tree which represent the database as a whole.
 
 #### INPUT:
 ![2022-07-31 (1)](https://user-images.githubusercontent.com/73133501/182041105-062715f4-8c55-4aff-ba7d-a08f84710486.png)
