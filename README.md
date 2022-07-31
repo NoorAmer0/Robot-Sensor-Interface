@@ -70,9 +70,3 @@ def getValue():
 
 #### DATABASE:
 ![2022-07-31 (3)](https://user-images.githubusercontent.com/73133501/182041053-8f3e5600-709a-49ae-b8f1-78a3fe4ac2fd.png)
-
-
-### Note:
-
-I think that using `POST` method with this application is bettre than 'GET', it is not about how much these data are secure, but it is about HTTP protocole, if we inputted a value then the `url` of the page will change as a result, then if the user for any reason `refresh` the page incorrect input will be submitted to the database.
-`GET` is used to get an object the sent information is about the requested object, while `POST` is used to send a data that will be stored in a database.
