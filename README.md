@@ -45,7 +45,7 @@ from datetime import datetime
 
 @app.route("/" ,methods=['GET'])
 def getValue():
-    if request.args.get('sent') == 'send':
+    if request.args.get('num'):
         val = request.args.get('num')
         ts = datetime.now().strftime("%d_%m_%Y, %H:%M:%S")
         firebase.database().child(ts).set(val)
@@ -55,7 +55,7 @@ def getValue():
 
 4-We have only one page, or in Flask terms only on `route`, so under this route in `main.py` file we will initialize our `getValue` method that will return the html page, or will be linked to its template `index.html`.
 
-`if request.args.get('sent') == 'send':` if the user clicked on send button and the `url` contains the value of `sent=send` then do the next.
+`if request.args.get('num'):` if the user clicked on send button and the `url` contains the value of `sent=send` and there is really a value then do the next.
 
 `val = request.args.get('num')` store the input value, that is currently in the `url` with the argumnt `num`
 
