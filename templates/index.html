@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+        body {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 30px;}
+    </style>
+
+    <meta charset="utf-8">
+    <title>Sensor Database</title>
+  </head>
+  <body>
+    <form action="{{url_for('getValue')}}" method="get">
+      <label>Sensor value is:</label>
+      <input type="number" placeholder="value" name="num">
+      <input value="send" type="submit" name="sent">
+    </form>
+  </body>
+</html>
