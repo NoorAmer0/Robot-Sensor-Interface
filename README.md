@@ -1,4 +1,4 @@
-# Task_3_summer_Training
+# Robot Sensor Interface
 This projrects explains how I used Flask microframework in Python to create a dynamic web page that uses HTTP GET method to get an input from sensor and store it in Firebase realtime databse along with the timestamp of this input.
 
 ### Prerequisite:
